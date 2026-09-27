@@ -1,0 +1,1075 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050b2e">
+
+<title>POLLITO ❤️ SOCHIL</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #030722;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* =========================
+   CIELO ESTRELLADO
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(150,190,255,.7) 1px, transparent 1px);
+    background-size: 90px 90px, 150px 150px;
+    background-position: 10px 20px, 50px 80px;
+    opacity: .45;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(50,90,220,.22), transparent 35%),
+        linear-gradient(to bottom, #02051c, #071044 55%, #02051c);
+    z-index: -3;
+}
+
+/* =========================
+   ESTRELLAS ANIMADAS
+========================= */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.moon {
+    position: absolute;
+    top: 10%;
+    right: 12%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow:
+        0 0 20px #fff,
+        0 0 60px rgba(130,170,255,.8),
+        0 0 100px rgba(80,120,255,.4);
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: fadeUp 1.5s ease;
+}
+
+.small-title {
+    letter-spacing: 5px;
+    font-size: 14px;
+    color: #9db9ff;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 10vw, 100px);
+    line-height: 1;
+    font-weight: 700;
+    text-shadow: 0 0 30px rgba(100,150,255,.7);
+}
+
+.hero h1 span {
+    display: block;
+    color: #9ebeff;
+}
+
+.heart {
+    color: #ff6f91;
+    animation: heartbeat 1.8s infinite;
+    display: inline-block;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+.hero p {
+    margin-top: 25px;
+    font-size: 18px;
+    color: #dce5ff;
+}
+
+.date {
+    margin-top: 15px;
+    color: #91aef8;
+    letter-spacing: 2px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #4264db, #7d4fd8);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,.2);
+    box-shadow: 0 10px 30px rgba(53,81,190,.35);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(80,110,255,.5);
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+    padding: 90px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #9eadd8;
+    margin-bottom: 45px;
+}
+
+/* =========================
+   CONTADOR
+========================= */
+
+.counter-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.counter-item {
+    background: rgba(15,25,75,.65);
+    border: 1px solid rgba(140,170,255,.18);
+    border-radius: 20px;
+    padding: 25px 10px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.counter-number {
+    display: block;
+    font-size: 38px;
+    font-weight: bold;
+    color: #a9c0ff;
+}
+
+.counter-label {
+    color: #8999c9;
+    font-size: 13px;
+}
+
+/* =========================
+   CARTA
+========================= */
+
+.letter {
+    max-width: 750px;
+    margin: auto;
+    padding: 45px;
+    border-radius: 25px;
+    background: rgba(10,19,62,.72);
+    border: 1px solid rgba(150,180,255,.18);
+    box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    text-align: center;
+    line-height: 2;
+    color: #e8edff;
+    font-size: 18px;
+}
+
+.letter .big-heart {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.photo-card {
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #111b50, #18276e);
+    border: 1px solid rgba(150,180,255,.2);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+}
+
+.photo-card:hover img {
+    transform: scale(1.07);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: #91a5df;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 15px 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,.8));
+    color: white;
+}
+
+/* =========================
+   RECUERDOS
+========================= */
+
+.timeline {
+    max-width: 750px;
+    margin: auto;
+}
+
+.memory {
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 3px solid #6687ef;
+    background: rgba(12,22,69,.55);
+    border-radius: 0 18px 18px 0;
+}
+
+.memory h3 {
+    color: #aac0ff;
+    margin-bottom: 8px;
+}
+
+.memory p {
+    color: #c2cbea;
+}
+
+/* =========================
+   SORPRESA
+========================= */
+
+.surprise {
+    text-align: center;
+}
+
+.surprise-box {
+    max-width: 700px;
+    margin: auto;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden-message {
+    display: none;
+    animation: fadeUp 1.2s ease;
+}
+
+.hidden-message.show {
+    display: block;
+}
+
+.hidden-message h2 {
+    font-size: 38px;
+    color: #a9c3ff;
+    margin-bottom: 20px;
+}
+
+.hidden-message p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #e8edff;
+}
+
+/* =========================
+   MÚSICA
+========================= */
+
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(25,40,100,.85);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: #7786b5;
+}
+
+footer span {
+    color: #ff7698;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.fade {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: 1s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .moon {
+        width: 60px;
+        height: 60px;
+        top: 8%;
+        right: 8%;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .counter-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card {
+        height: 380px;
+    }
+
+    .letter {
+        padding: 30px 20px;
+        font-size: 16px;
+    }
+
+    section {
+        padding: 70px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ESTRELLAS -->
+<div class="stars" id="stars"></div>
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<header class="hero">
+
+    <div class="moon"></div>
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            UNA HISTORIA ESCRITA BAJO LAS ESTRELLAS
+        </div>
+
+        <h1>
+            POLLITO
+            <span><span class="heart">♥</span> SOCHIL</span>
+        </h1>
+
+        <p>
+            Nuestro pequeño universo comenzó a escribirse juntos.
+        </p>
+
+        <div class="date">
+            27 · 03 · 2026
+        </div>
+
+        <a href="#contador" class="btn">
+            Ver nuestra historia ↓
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     CONTADOR
+========================= -->
+
+<section id="contador" class="fade">
+
+    <h2 class="section-title">Nuestro tiempo juntos ❤️</h2>
+
+    <p class="section-subtitle">
+        Desde aquel 27 de marzo de 2026...
+    </p>
+
+    <div class="counter-box">
+
+        <div class="counter-item">
+            <span class="counter-number" id="days">0</span>
+            <span class="counter-label">DÍAS</span>
+        </div>
+
+        <div class="counter-item">
+            <span class="counter-number" id="hours">0</span>
+            <span class="counter-label">HORAS</span>
+        </div>
+
+        <div class="counter-item">
+            <span class="counter-number" id="minutes">0</span>
+            <span class="counter-label">MINUTOS</span>
+        </div>
+
+        <div class="counter-item">
+            <span class="counter-number" id="seconds">0</span>
+            <span class="counter-label">SEGUNDOS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CARTA
+========================= -->
+
+<section class="fade">
+
+    <h2 class="section-title">Para ti, Sochil 💌</h2>
+
+    <p class="section-subtitle">
+        Algunas palabras que salen directamente de mi corazón.
+    </p>
+
+    <div class="letter">
+
+        <div class="big-heart">❤️</div>
+
+        <p>
+            GRACIAS POR TODOS LOS MOMENTOS VIVIDOS JUNTOS,
+            POR TODOS LO DETALLES, TU CARIÑO, TU CONFIANZA,
+            TU APOYO Y TU FORMA ESPECIAL DE SER CONMIGO,
+            TE QUIERO.
+        </p>
+
+        <br>
+
+        <strong>
+            — POLLITO ❤️
+        </strong>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALERÍA
+========================= -->
+
+<section class="fade">
+
+    <h2 class="section-title">Nuestros recuerdos 📸</h2>
+
+    <p class="section-subtitle">
+        Reemplaza las imágenes de abajo por nuestras fotos.
+    </p>
+
+    <div class="gallery">
+
+        <!-- FOTO 1 -->
+        <div class="photo-card">
+
+            <!--
+            REEMPLAZA "foto1.jpg" POR TU FOTO.
+
+            Ejemplo:
+            <img src="fotos/foto1.jpg" alt="Nuestro recuerdo">
+            -->
+
+            <div class="photo-placeholder">
+                📷<br><br>
+                AQUÍ VA<br>
+                NUESTRA FOTO 1
+            </div>
+
+            <div class="photo-caption">
+                Nuestro primer recuerdo ❤️
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 2 -->
+        <div class="photo-card">
+
+            <div class="photo-placeholder">
+                📷<br><br>
+                AQUÍ VA<br>
+                NUESTRA FOTO 2
+            </div>
+
+            <div class="photo-caption">
+                Un momento que nunca olvidaré
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 3 -->
+        <div class="photo-card">
+
+            <div class="photo-placeholder">
+                📷<br><br>
+                AQUÍ VA<br>
+                NUESTRA FOTO 3
+            </div>
+
+            <div class="photo-caption">
+                Tú haces especial cualquier momento
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 4 -->
+        <div class="photo-card">
+
+            <div class="photo-placeholder">
+                📷<br><br>
+                AQUÍ VA<br>
+                NUESTRA FOTO 4
+            </div>
+
+            <div class="photo-caption">
+                Otro recuerdo juntos ❤️
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 5 -->
+        <div class="photo-card">
+
+            <div class="photo-placeholder">
+                📷<br><br>
+                AQUÍ VA<br>
+                NUESTRA FOTO 5
+            </div>
+
+            <div class="photo-caption">
+                Sonrisas que quiero seguir compartiendo
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 6 -->
+        <div class="photo-card">
+
+            <div class="photo-placeholder">
+                📷<br><br>
+                AQUÍ VA<br>
+                NUESTRA FOTO 6
+            </div>
+
+            <div class="photo-caption">
+                Y que sigan los recuerdos...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RECUERDOS
+========================= -->
+
+<section class="fade">
+
+    <h2 class="section-title">Nuestra pequeña historia ✨</h2>
+
+    <p class="section-subtitle">
+        Porque cada momento cuenta.
+    </p>
+
+    <div class="timeline">
+
+        <div class="memory">
+            <h3>🌙 El comienzo</h3>
+            <p>
+                Aquí puedes escribir cómo comenzó nuestra historia,
+                dónde se conocieron o qué sentiste aquel día.
+            </p>
+        </div>
+
+        <div class="memory">
+            <h3>💙 Nuestro primer recuerdo</h3>
+            <p>
+                Escribe aquí uno de esos momentos que nunca quieres olvidar.
+            </p>
+        </div>
+
+        <div class="memory">
+            <h3>⭐ 6 meses juntos</h3>
+            <p>
+                Seis meses llenos de momentos, risas, cariño y recuerdos
+                que forman parte de nuestra historia.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SORPRESA FINAL
+========================= -->
+
+<section class="surprise fade">
+
+    <h2 class="section-title">
+        Tengo algo para ti... 🌌
+    </h2>
+
+    <p class="section-subtitle">
+        Pero tendrás que descubrirlo.
+    </p>
+
+    <div class="surprise-box">
+
+        <button class="btn" id="surpriseBtn">
+            ✨ Abrir sorpresa
+        </button>
+
+        <div class="hidden-message" id="hiddenMessage">
+
+            <h2>Para siempre tú ❤️</h2>
+
+            <p>
+                Si pudiera volver al día en que comenzó todo,
+                volvería a elegirte.
+                <br><br>
+                Gracias por formar parte de mi vida,
+                Sochil.
+                <br><br>
+                Te quiero muchísimo. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MÚSICA
+========================= -->
+
+<!--
+MÚSICA OPCIONAL
+
+Para agregar una canción:
+
+1. Coloca un archivo llamado "musica.mp3"
+   en la misma carpeta que este HTML.
+
+2. Quita los comentarios de la siguiente línea:
+
+<audio id="music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+IMPORTANTE:
+Los navegadores normalmente bloquean el autoplay.
+Por eso la música se inicia al tocar el botón 🎵.
+-->
+
+<audio id="music" loop>
+    <!-- <source src="musica.mp3" type="audio/mpeg"> -->
+</audio>
+
+<button class="music-button" id="musicBtn" title="Música">
+    🎵
+</button>
+
+
+<footer>
+    Hecho con ❤️ para <span>Sochil</span>
+    <br>
+    POLLITO · 2026
+</footer>
+
+
+<script>
+
+/* =========================
+   CREAR ESTRELLAS
+========================= */
+
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 90; i++) {
+
+    const star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    const size = Math.random() * 3 + 1;
+
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    star.style.animationDuration =
+        (2 + Math.random() * 4) + "s";
+
+    starsContainer.appendChild(star);
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+const anniversaryDate =
+    new Date("2026-03-27T00:00:00");
+
+function updateCounter() {
+
+    const now = new Date();
+
+    let difference = now - anniversaryDate;
+
+    if (difference < 0) {
+        difference = 0;
+    }
+
+    const totalSeconds =
+        Math.floor(difference / 1000);
+
+    const days =
+        Math.floor(totalSeconds / 86400);
+
+    const hours =
+        Math.floor((totalSeconds % 86400) / 3600);
+
+    const minutes =
+        Math.floor((totalSeconds % 3600) / 60);
+
+    const seconds =
+        totalSeconds % 60;
+
+    document.getElementById("days").textContent =
+        days;
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateCounter();
+
+setInterval(updateCounter, 1000);
+
+
+/* =========================
+   ANIMACIONES AL HACER SCROLL
+========================= */
+
+const fadeElements =
+    document.querySelectorAll(".fade");
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+fadeElements.forEach(element => {
+    observer.observe(element);
+});
+
+
+/* =========================
+   SORPRESA
+========================= */
+
+const surpriseBtn =
+    document.getElementById("surpriseBtn");
+
+const hiddenMessage =
+    document.getElementById("hiddenMessage");
+
+surpriseBtn.addEventListener("click", () => {
+
+    surpriseBtn.style.display = "none";
+
+    hiddenMessage.classList.add("show");
+
+    createHearts();
+
+});
+
+
+/* =========================
+   CORAZONES
+========================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 25; i++) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.innerHTML = "❤️";
+
+        heart.style.position = "fixed";
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.bottom = "-30px";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        heart.style.zIndex = "999";
+
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        const animation =
+            heart.animate(
+                [
+                    {
+                        transform: "translateY(0) rotate(0deg)",
+                        opacity: 1
+                    },
+                    {
+                        transform:
+                            `translateY(-100vh) rotate(${Math.random()*360}deg)`,
+                        opacity: 0
+                    }
+                ],
+                {
+                    duration:
+                        3000 + Math.random() * 3000,
+                    easing: "ease-out"
+                }
+            );
+
+        animation.onfinish = () => {
+            heart.remove();
+        };
+
+    }
+}
+
+
+/* =========================
+   MÚSICA
+========================= */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+let musicPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+
+    if (!music.src) {
+
+        alert(
+            "Primero coloca tu archivo musica.mp3 en la misma carpeta que index.html."
+        );
+
+        return;
+    }
+
+    if (musicPlaying) {
+
+        music.pause();
+
+        musicBtn.textContent = "🎵";
+
+        musicPlaying = false;
+
+    } else {
+
+        music.play();
+
+        musicBtn.textContent = "⏸️";
+
+        musicPlaying = true;
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```
